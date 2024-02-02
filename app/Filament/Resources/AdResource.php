@@ -98,10 +98,6 @@ class AdResource extends Resource
                     ->boolean(),
                 Tables\Columns\IconColumn::make('is_published')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('published_at')
-                    ->date()
-                    ->default('---')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('vues')
                     ->numeric()
                     ->sortable(),
