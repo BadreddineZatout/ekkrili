@@ -28,4 +28,9 @@ class Ad extends Model implements HasMedia
     {
         return $this->hasMany(Tag::class);
     }
+
+    public function scopePremium()
+    {
+        return $this->where('is_premium', true);
+    }
 }
