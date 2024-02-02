@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends Model
 {
-    protected $fillable = ['name', 'value'];
+    protected $fillable = ['name'];
 
-    public function ad(): BelongsTo
+    public function ad(): BelongsToMany
     {
-        return $this->belongsTo(Ad::class);
+        return $this->belongsToMany(Ad::class);
     }
 }
