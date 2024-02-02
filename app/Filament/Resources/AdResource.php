@@ -6,6 +6,7 @@ use App\Filament\Resources\AdResource\Pages;
 use App\Models\Ad;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Resources\Resource;
@@ -76,6 +77,10 @@ class AdResource extends Resource
                     ->required()
                     ->numeric()
                     ->hiddenOn('create'),
+                SpatieMediaLibraryFileUpload::make('images')
+                    ->multiple()
+                    ->preserveFilenames()
+                    ->required(),
             ]);
     }
 
