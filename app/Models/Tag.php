@@ -9,8 +9,8 @@ class Tag extends Model
 {
     protected $fillable = ['name'];
 
-    public function ad(): BelongsToMany
+    public function ads(): BelongsToMany
     {
-        return $this->belongsToMany(Ad::class);
+        return $this->belongsToMany(Ad::class)->withPivot('value');
     }
 }

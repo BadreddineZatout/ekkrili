@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AdResource\Pages;
+use App\Filament\Resources\AdResource\RelationManagers\TagsRelationManager;
 use App\Models\Ad;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -122,7 +123,7 @@ class AdResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TagsRelationManager::class,
         ];
     }
 
