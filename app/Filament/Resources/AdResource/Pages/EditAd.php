@@ -5,6 +5,7 @@ namespace App\Filament\Resources\AdResource\Pages;
 use App\Filament\Resources\AdResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Database\Eloquent\Model;
 
 class EditAd extends EditRecord
 {
@@ -28,5 +29,25 @@ class EditAd extends EditRecord
         $data['longitude'] = $this->record->location?->longitude;
 
         return $data;
+    }
+
+    protected function handleRecordUpdate(Model $record, array $data): Model
+    {
+        $record->location->update([
+            'address' => $this->data['address'],
+            'postal_code' => $this->data['postal_code'],
+            'city' => $this->data['city'],
+            'state' => $this->data['state'],
+            'latitude' => $this->data['latitude'],
+            'longitude' => $this->data['longitude'],
+        ]);
+        $record->update($data);
+
+        return $record;
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('view', ['record' => $this->getRecord()]);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Filament\Resources\AdResource\Pages;
 
-use App\Models\Location;
 use App\Filament\Resources\AdResource;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Location;
 use Filament\Resources\Pages\CreateRecord;
+use Illuminate\Database\Eloquent\Model;
 
 class CreateAd extends CreateRecord
 {
@@ -24,7 +24,7 @@ class CreateAd extends CreateRecord
 
         return static::getModel()::create([
             ...$data,
-            'location_id' => $location->id
+            'location_id' => $location->id,
         ]);
     }
 }
