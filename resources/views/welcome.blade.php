@@ -2,7 +2,7 @@
 
 @section('content')
     <x-search-section />
-    <w-premium-ads />
-    <w-last-sales-ads />
-    <w-last-renting-ads />
+    <x-premium-ads :ads="$premium_ads" />
+    <x-last-sales-ads />
+    <x-last-renting-ads />
 @endsection
