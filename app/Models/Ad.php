@@ -12,7 +12,11 @@ class Ad extends Model implements HasMedia
 {
     use InteractsWithMedia;
 
-    protected $fillable = ['name', 'description', 'category_id', 'location_id', 'price', 'vues', 'is_premium',  'is_published', 'published_at'];
+    protected $fillable = ['name', 'description', 'type', 'category_id', 'location_id', 'price', 'vues', 'is_premium',  'is_published', 'published_at'];
+
+    protected $casts = [
+        'published_at' => 'date',
+    ];
 
     public function category(): BelongsTo
     {

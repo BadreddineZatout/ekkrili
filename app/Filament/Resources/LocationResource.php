@@ -23,13 +23,13 @@ class LocationResource extends Resource
                 Forms\Components\TextInput::make('address')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('postal_code')
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\TextInput::make('city')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('state')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('postal_code')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('latitude')
@@ -47,11 +47,11 @@ class LocationResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('address')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('postal_code')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('city')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('state')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('postal_code')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('latitude')
                     ->numeric()

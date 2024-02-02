@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->double('price');
+            $table->tinyInteger('type');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->foreignId('location_id')->constrained()->cascadeOnDelete();
-            $table->integer('vues');
+            $table->integer('vues')->default(0);
             $table->boolean('is_premium');
             $table->boolean('is_published');
             $table->date('published_at');
