@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('vues')->default(0);
             $table->boolean('is_premium');
             $table->boolean('is_published');
-            $table->date('published_at');
+            $table->date('published_at')->nullable();
             $table->timestamps();
         });
     }
