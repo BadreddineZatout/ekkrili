@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $premium_ads = Ad::premium()->get();
+        $premium_ads = Ad::with('media')->premium()->get();
 
         return view('welcome', compact('premium_ads'));
     }
