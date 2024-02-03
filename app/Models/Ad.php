@@ -37,4 +37,9 @@ class Ad extends Model implements HasMedia
     {
         return $this->where('is_premium', true);
     }
+
+    public function scopeSale()
+    {
+        return $this->where('type', 1);
+    }
 }
