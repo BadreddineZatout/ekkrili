@@ -2,18 +2,18 @@
 
 namespace App\View\Components;
 
+use App\Models\Ad;
 use Closure;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class LastSalesAds extends Component
+class AdCard extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public Collection $ads
+        public Ad $ad
     ) {
     }
 
@@ -22,6 +22,6 @@ class LastSalesAds extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.last-sales-ads');
+        return view('components.ad-card');
     }
 }
