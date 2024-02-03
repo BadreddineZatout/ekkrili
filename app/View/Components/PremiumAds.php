@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
 class PremiumAds extends Component
@@ -12,7 +13,7 @@ class PremiumAds extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public $ads = []
+        public Collection $ads
     ) {
     }
 
