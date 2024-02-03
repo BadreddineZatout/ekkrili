@@ -1,6 +1,7 @@
 <a href="ads/{{ $ad->id }}" class="w-1/4 px-3 pb-5 rounded-lg hover:shadow-lg">
     <div class="rounded-lg overflow-hidden relative">
-        <img src="{{ $ad->getFirstMedia()?->getUrl() }}" alt="{{ $ad->name }}">
+        <img src="{{ $ad->getFirstMedia() ? $ad->getFirstMedia()?->getUrl() : '/no_image.png' }}"
+            alt="{{ $ad->name }}">
         <p class="absolute flex items-center gap-x-1 text-white bottom-2 right-5">
             <svg class="w-5 h-5" data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor"
                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -42,4 +42,9 @@ class Ad extends Model implements HasMedia
     {
         return $this->where('type', 1);
     }
+
+    public function scopeRenting()
+    {
+        return $this->where('type', 0);
+    }
 }

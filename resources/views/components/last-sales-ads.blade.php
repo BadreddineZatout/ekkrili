@@ -1,6 +1,6 @@
 <div class="mt-10 px-10">
     <div class="flex justify-between items-center">
-        <h1 class="text-3xl font-bold">Dernières annonces de location</h1>
+        <h1 class="text-3xl font-bold">Dernières annonces de vente</h1>
         <button class="border border-gold-200 rounded-full p-2 text-gold-400 hover:text-white hover:bg-gold-400">voir
             plus</button>
     </div>
