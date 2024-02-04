@@ -9,7 +9,7 @@ class AdController extends Controller
 {
     public function index(Request $request)
     {
-        $limit = $request->query('limit', 20);
+        $limit = $request->query('limit', 5);
         $offset = $request->query('offset', 0);
         $ads_query = Ad::latest();
 
@@ -33,8 +33,7 @@ class AdController extends Controller
             $ads_query->where('price', '<=', $price);
         }
 
-        $ads = $ads_query->offset($offset * $limit)->limit($limit)->get();
-
+        $ads = $ads_query->paginate(5);
         return view('ads', compact('ads'));
     }
 }

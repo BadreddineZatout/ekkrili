@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="w-full flex gap-x-5 px-20 mt-10">
+    <div class="w-full flex gap-x-5 px-20 mt-10 mb-5">
         <div class="w-1/4 border border-gold-100">
             <x-filters />
         </div>
@@ -12,6 +12,7 @@
                     <x-ad-details-card :ad="$ad" />
                 @endforeach
             </div>
+            {{ $ads->links() }}
         </div>
     </div>
 @endsection
