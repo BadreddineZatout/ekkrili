@@ -9,7 +9,7 @@
             <h1 class="text-2xl font-semibold">{{ count($ads) }} résultats trouvés</h1>
             <div class="w-full mt-10 px-5 flex flex-wrap gap-y-5">
                 @foreach ($ads as $ad)
-                    <x-ad-card :ad="$ad" />
+                    <x-ad-details-card :ad="$ad" />
                 @endforeach
             </div>
         </div>
