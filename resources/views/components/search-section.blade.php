@@ -3,31 +3,41 @@
         <h1 class="w-1/3 text-3xl font-semibold">Quel est votre projet ?</h1>
     </div>
     <div class="w-full flex justify-center">
-        <div class="w-1/3 shadow-md rounded-md">
+        <form method="GET" action="/ads" class="w-1/3 shadow-md rounded-md">
             <div class="flex items-center">
-                <button id="louer"
-                    class="w-1/2 rounded-t-md border-2 border-gold-200 bg-gold-500 text-white py-2">Louer</button>
-                <button id="acheter"
-                    class="w-1/2 rounded-t-md border-2 border-gold-200 bg-gold-500 text-white py-2">Acheter</button>
+                <label class="cursor-pointer w-1/2">
+                    <input type="radio" class="peer sr-only" name="type" value="0" checked />
+                    <div
+                        class="w-full text-center max-w-xl rounded-md p-2 text-gray-300 ring-2 ring-gold-200 transition-all hover:shadow peer-checked:text-gold-600 peer-checked:ring-gold-400 peer-checked:bg-gold-400">
+                        <p class="text-sm font-semibold uppercase text-gray-500">Louer</p>
+                    </div>
+                </label>
+                <label class="cursor-pointer w-1/2">
+                    <input type="radio" class="peer sr-only" name="type" value="1" />
+                    <div
+                        class="w-full text-center max-w-xl rounded-md bg-white p-2 text-gray-300 ring-2 ring-gold-200 transition-all hover:shadow peer-checked:text-gold-600 peer-checked:ring-gold-400 peer-checked:bg-gold-400">
+                        <p class="text-sm font-semibold uppercase text-gray-500">Acheter</p>
+                    </div>
+                </label>
             </div>
-            <form class="px-5 py-10 w-full border border-t-0 border-gold-400 rounded-b-md">
+            <div class="px-5 py-10 w-full border border-t-0 border-gold-400 rounded-b-md">
                 <div class="w-full mb-5">
                     <input
                         class=" w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
-                        type="text" placeholder="Entrez un mot clé ...">
+                        name="search" type="text" placeholder="Entrez un mot clé ...">
                 </div>
                 <div class="w-full flex gap-x-3">
                     <input
                         class="w-3/5 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
-                        type="text" placeholder="Dans quelle ville ? Quartier ?">
+                        name="location" type="text" placeholder="Dans quelle ville ? Quartier ?">
 
                     <input
                         class="w-2/5 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
-                        type="text" placeholder="Votre budget max ?">
+                        name="price " type="text" placeholder="Votre budget max ?">
                 </div>
                 <div class="mt-5 flex flex-wrap gap-3">
                     <label class="cursor-pointer">
-                        <input type="radio" class="peer sr-only" name="type" />
+                        <input type="radio" class="peer sr-only" name="category" value="maison" />
                         <div
                             class="w-fit max-w-xl rounded-md p-2 text-gray-300 ring-2 ring-gold-200 transition-all hover:shadow peer-checked:text-gold-600 peer-checked:ring-gold-400 peer-checked:ring-offset-2">
                             <div class="flex flex-col gap-1">
@@ -44,7 +54,7 @@
                         </div>
                     </label>
                     <label class="cursor-pointer">
-                        <input type="radio" class="peer sr-only" name="type" />
+                        <input type="radio" class="peer sr-only" name="category" value="appartement" />
                         <div
                             class="w-fit max-w-xl rounded-md bg-white p-2 text-gray-300 ring-2 ring-gold-200 transition-all hover:shadow peer-checked:text-gold-600 peer-checked:ring-gold-400 peer-checked:ring-offset-2">
                             <div class="flex flex-col gap-1">
@@ -61,7 +71,7 @@
                         </div>
                     </label>
                     <label class="cursor-pointer">
-                        <input type="radio" class="peer sr-only" name="type" />
+                        <input type="radio" class="peer sr-only" name="category" value="evenement" />
                         <div
                             class="w-fit max-w-xl rounded-md bg-white p-2 text-gray-300 ring-2 ring-gold-200 transition-all hover:shadow peer-checked:text-gold-600 peer-checked:ring-gold-400 peer-checked:ring-offset-2">
                             <div class="flex flex-col gap-1">
@@ -79,12 +89,13 @@
                     </label>
                 </div>
                 <div class="w-full text-center mt-10">
-                    <button class="px-5 py-3 rounded-full bg-gold-500 text-white hover:bg-gold-300">
+                    <button type="submit" placeholder="Rechercher"
+                        class="px-5 py-3 rounded-full bg-gold-500 text-white hover:bg-gold-300">
                         Rechercher
                     </button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 <script>
@@ -106,5 +117,10 @@
         $("#acheter").removeClass("bg-white text-black");
         $("#louer").addClass("bg-white text-black");
         $("#louer").removeClass("bg-gold-500 text-white");
+    });
+
+    $("#search-form").submit(function(e) {
+        e.preventDefault();
+        console.log(e.target.elements.map(e => e.value))
     });
 </script>
