@@ -42,9 +42,19 @@
             @endforeach
         </select>
     </div>
-    <div class="w-full text-center">
-        <button placeholder="Rechercher" class="px-5 py-2 rounded-sm bg-gold-500 text-white hover:bg-gold-400">
+    <div class="w-full flex justify-between items-center gap-x-5 text-center">
+        <button class="w-1/2 px-5 py-2 rounded-sm bg-gold-500 text-white hover:bg-gold-400">
             Rechercher
+        </button>
+        <button id="clear" class="w-1/2 px-5 py-2 rounded-sm bg-gold-500 text-white hover:bg-gold-400">
+            Clear
         </button>
     </div>
 </form>
+
+<script>
+    $("#clear").click(function(e) {
+        e.preventDefault();
+        window.location.href = "/ads";
+    });
+</script>
