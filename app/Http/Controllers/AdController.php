@@ -33,7 +33,7 @@ class AdController extends Controller
             $ads_query->where('price', '<=', $price);
         }
 
-        $ads = $ads_query->paginate(5);
+        $ads = $ads_query->simplePaginate(15);
         return view('ads', compact('ads'));
     }
 }
