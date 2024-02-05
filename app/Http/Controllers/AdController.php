@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ad;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -34,6 +35,9 @@ class AdController extends Controller
         }
 
         $ads = $ads_query->simplePaginate(15);
-        return view('ads', compact('ads'));
+
+        $categories = Category::all();
+
+        return view('ads', compact('ads', 'categories'));
     }
 }
