@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full flex gap-x-5 px-20 mt-10 mb-5">
         <div class="w-1/4 h-fit border border-gold-100">
-            <x-filters :categories="$categories" />
+            <x-filters :categories="$categories" :filters="$filters" />
         </div>
         <div class="w-3/4">
             <h1 class="text-2xl font-semibold">{{ count($ads) }} résultats trouvés</h1>

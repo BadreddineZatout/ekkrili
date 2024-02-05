@@ -13,7 +13,8 @@ class Filters extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public Collection $categories
+        public Collection $categories,
+        public array $filters
     ) {
     }
 

@@ -33,7 +33,7 @@
 
                     <input
                         class="w-2/5 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
-                        name="price " type="text" placeholder="Votre budget max ?">
+                        name="price_max " type="text" placeholder="Votre budget max ?">
                 </div>
                 <div class="mt-5 flex flex-wrap gap-3">
                     @foreach ($categories as $category)
