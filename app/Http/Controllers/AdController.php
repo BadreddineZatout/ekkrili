@@ -34,6 +34,10 @@ class AdController extends Controller
             $ads_query->where('price', '<=', $price);
         }
 
+        if ($category = $request->query('category')) {
+            $ads_query->where('category_id', $category);
+        }
+
         $ads = $ads_query->simplePaginate(15);
 
         $categories = Category::all();

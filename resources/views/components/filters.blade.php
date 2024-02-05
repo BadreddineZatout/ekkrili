@@ -32,7 +32,7 @@
                     id="type-1">Acheter</label>
         </div>
     </div>
-    <div class="w-full">
+    <div class="w-full mb-5">
         <label class="font-semibold mb-2" for="category">Catégorie</label>
         <select name="category" id="category"
             class="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400">
@@ -41,5 +41,10 @@
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
         </select>
+    </div>
+    <div class="w-full text-center">
+        <button placeholder="Rechercher" class="px-5 py-2 rounded-sm bg-gold-500 text-white hover:bg-gold-400">
+            Rechercher
+        </button>
     </div>
 </form>
