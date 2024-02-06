@@ -56,4 +56,9 @@ class AdController extends Controller
 
         return view('ads', compact('ads', 'categories', 'filters'));
     }
+
+    public function show(Ad $ad)
+    {
+        return view('ad', compact('ad'));
+    }
 }
