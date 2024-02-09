@@ -3,7 +3,7 @@
         <h1 class="w-3/4 sm:w-1/3 text-2xl sm:text-3xl font-bold sm:font-semibold">Quel est votre projet ?</h1>
     </div>
     <div class="w-full flex justify-center">
-        <form method="GET" action="/ads" class="w-full px-5 pb-5 sm:px-0 sm:w-1/3 shadow-md rounded-md">
+        <form method="GET" action="/ads" class="w-full px-5 pb-5 sm:px-0 sm:pb-0 sm:w-1/3 shadow-md rounded-md">
             <div class="flex items-center">
                 <label class="cursor-pointer w-1/2">
                     <input type="radio" class="peer sr-only" name="type" value="0" checked />
