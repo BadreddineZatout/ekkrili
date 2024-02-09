@@ -1,9 +1,9 @@
-<div class="w-full">
-    <div class=" flex justify-center pt-20 mb-10">
-        <h1 class="w-1/3 text-3xl font-semibold">Quel est votre projet ?</h1>
+<div class="w-full pb-10">
+    <div class=" flex justify-center pt-10 mb-10">
+        <h1 class="w-3/4 sm:w-1/3 text-2xl sm:text-3xl font-bold sm:font-semibold">Quel est votre projet ?</h1>
     </div>
     <div class="w-full flex justify-center">
-        <form method="GET" action="/ads" class="w-1/3 shadow-md rounded-md">
+        <form method="GET" action="/ads" class="w-full px-5 pb-5 sm:px-0 sm:w-1/3 shadow-md rounded-md">
             <div class="flex items-center">
                 <label class="cursor-pointer w-1/2">
                     <input type="radio" class="peer sr-only" name="type" value="0" checked />
@@ -26,13 +26,13 @@
                         class=" w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
                         name="search" type="text" placeholder="Entrez un mot clé ...">
                 </div>
-                <div class="w-full flex gap-x-3">
+                <div class="w-full flex flex-wrap sm:flex-nowrap gap-3">
                     <input
-                        class="w-3/5 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
+                        class="w-full sm:w-3/5 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
                         name="location" type="text" placeholder="Dans quelle ville ? Quartier ?">
 
                     <input
-                        class="w-2/5 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
+                        class="w-full sm:w-2/5 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
                         name="price_max " type="text" placeholder="Votre budget max ?">
                 </div>
                 <div class="mt-5 flex flex-wrap gap-3">
@@ -86,10 +86,5 @@
         $("#acheter").removeClass("bg-white text-black");
         $("#louer").addClass("bg-white text-black");
         $("#louer").removeClass("bg-gold-500 text-white");
-    });
-
-    $("#search-form").submit(function(e) {
-        e.preventDefault();
-        console.log(e.target.elements.map(e => e.value))
     });
 </script>
