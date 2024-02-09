@@ -1,5 +1,5 @@
-<div class="text-left px-10 py-1 shadow-lg">
+<div class="text-left px-10 py-1 bg-gold-50 shadow-lg">
     <a href="/">
-        <img class="object-cover w-32" src="/logo.png" alt="Logo">
+        <img class="object-cover w-24 sm:w-32" src="/logo.png" alt="Logo">
     </a>
 </div>

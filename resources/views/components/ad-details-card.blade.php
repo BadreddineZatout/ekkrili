@@ -1,4 +1,4 @@
-<a href="ads/{{ $ad->id }}" class="w-1/3 h-fit px-3 pb-5 rounded-lg hover:shadow-lg">
+<a href="ads/{{ $ad->id }}" class="w-full sm:w-1/3 h-fit px-3 pb-5 rounded-lg hover:shadow-lg">
     <div class="rounded-lg overflow-hidden relative">
         <img src="{{ $ad->getFirstMedia() ? $ad->getFirstMedia()?->getUrl() : '/no_image.png' }}"
             alt="{{ $ad->name }}">

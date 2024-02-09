@@ -1,8 +1,8 @@
 @if (count($ads))
-    <div class="mt-10 px-10">
-        <h1 class="text-3xl font-bold">La sélection premium</h1>
+    <div class="mt-5 sm:mt-10 px-5 sm:px-10">
+        <h1 class="text-2xl sm:text-3xl font-bold">La sélection premium</h1>
 
-        <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
+        <div class="flex items-center justify-center w-full h-full py-8 sm:py-24 px-4">
             <div class="w-full relative flex items-center justify-center">
                 @if (count($ads) > 1)
                     <button aria-label="slide backward"

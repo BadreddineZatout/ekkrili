@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="mt-10 w-3/4 px-36">
+    <div class="mt-10 w-full sm:w-3/4 px-5 sm:px-36">
         <x-carousel :images="$ad->getMedia()" />
         <h1 class="text-3xl font-bold my-10">{{ $ad->name }}</h1>
         <p>{{ $ad->category->name }} <span class="font-bold text-2xl mx-1">.</span>
@@ -21,12 +21,12 @@
                 </div>
             @endforeach
         </div>
-        <div class="my-10 flex justify-between items-center">
-            <div class="w-3/4 pr-5">
+        <div class="my-10 flex flex-wrap sm:flex-nowrap justify-between items-center">
+            <div class="w-full sm:w-3/4 pr-5">
                 <h1 class="text-xl font-semibold">Description</h1>
                 <p>{{ $ad->description }}</p>
             </div>
-            <div class="w-1/4 pl-5 border-l-4 border-gold-400">
+            <div class="w-full mt-5 sm:mt-0 sm:w-1/4 sm:pl-5 sm:border-l-4 sm:border-gold-400">
                 <h3 class="flex items-center gap-x-2 font-semibold">
                     <svg class="w-5 h-5" data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5"
                         stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
