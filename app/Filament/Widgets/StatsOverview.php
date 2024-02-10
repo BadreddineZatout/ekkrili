@@ -13,10 +13,10 @@ class StatsOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Total Ads', Ad::count()),
-            Stat::make('Total Premium Ads', Ad::premium()->count()),
-            Stat::make('Total Sale Ads', Ad::sale()->count()),
-            Stat::make('Total Rental Ads', Ad::renting()->count()),
+            Stat::make('Annonces Totales', Ad::count()),
+            Stat::make('Annonces Premiumes Totales', Ad::premium()->count()),
+            Stat::make('Annonces De Vente Totales', Ad::sale()->count()),
+            Stat::make('Annonces De Location Totales', Ad::renting()->count()),
         ];
     }
 }

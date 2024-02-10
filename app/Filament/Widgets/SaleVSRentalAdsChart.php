@@ -9,19 +9,19 @@ class SaleVSRentalAdsChart extends ChartWidget
 {
     protected static ?int $sort = 4;
 
-    protected static ?string $heading = 'Chart';
+    protected static ?string $heading = 'Ventes VS Locations';
 
     protected function getData(): array
     {
         return [
             'datasets' => [
                 [
-                    'label' => 'Sales VS Rental',
+                    'label' => 'Ventes VS Locations',
                     'data' => [Ad::sale()->count(), Ad::renting()->count()],
                     'backgroundColor' => ['#f7f1ce', '#d99e27'],
                 ],
             ],
-            'labels' => ['Sales', 'Rental'],
+            'labels' => ['Ventes', 'Locations'],
         ];
     }
 

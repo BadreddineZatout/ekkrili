@@ -21,21 +21,27 @@ class LocationResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('address')
+                    ->label('Addresse')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('city')
+                    ->label('Ville')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('state')
+                    ->label("L'état")
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('postal_code')
+                    ->label('Code Postal')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('latitude')
+                    ->label('Latitude')
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('longitude')
+                    ->label('Longitude')
                     ->required()
                     ->numeric(),
             ]);
@@ -46,17 +52,23 @@ class LocationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('address')
+                    ->label('Addresse')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('city')
+                    ->label('Ville')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('state')
+                    ->label("L'état")
                     ->searchable(),
                 Tables\Columns\TextColumn::make('postal_code')
+                    ->label('Code Postal')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('latitude')
+                    ->label('Latitude')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('longitude')
+                    ->label('Longitude')
                     ->numeric()
                     ->sortable(),
             ])
@@ -80,5 +92,15 @@ class LocationResource extends Resource
             'view' => Pages\ViewLocation::route('/{record}'),
             'edit' => Pages\EditLocation::route('/{record}/edit'),
         ];
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Emplacement';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Emplacements';
     }
 }
