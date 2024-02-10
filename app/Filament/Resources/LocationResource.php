@@ -37,9 +37,11 @@ class LocationResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('latitude')
+                    ->label('Latitude')
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('longitude')
+                    ->label('Longitude')
                     ->required()
                     ->numeric(),
             ]);
@@ -62,9 +64,11 @@ class LocationResource extends Resource
                     ->label('Code Postal')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('latitude')
+                    ->label('Latitude')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('longitude')
+                    ->label('Longitude')
                     ->numeric()
                     ->sortable(),
             ])

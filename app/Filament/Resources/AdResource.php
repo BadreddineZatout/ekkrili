@@ -25,18 +25,22 @@ class AdResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nom')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('type')
+                    ->label('Type')
                     ->options([
                         0 => 'Louer',
                         1 => 'Acheter',
                     ])
                     ->required(),
                 Forms\Components\Select::make('category_id')
+                    ->label('Catégorie')
                     ->relationship('category', 'name')
                     ->required(),
                 Forms\Components\TextInput::make('price')
+                    ->label('Prix')
                     ->required()
                     ->numeric()
                     ->prefix('$'),
@@ -44,41 +48,52 @@ class AdResource extends Resource
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
-                Section::make('Location')
-                    ->description('Add the location of the property')
+                Section::make('Emplacement')
+                    ->description("Ajouter l'emplacement de la propriété")
                     ->columns(2)
                     ->schema([
                         Forms\Components\TextInput::make('address')
+                            ->label('Addresse')
                             ->required()
                             ->maxLength(255),
                         Forms\Components\TextInput::make('city')
+                            ->label('Ville')
                             ->required()
                             ->maxLength(255),
                         Forms\Components\TextInput::make('state')
+                            ->label("L'état")
                             ->required()
                             ->maxLength(255),
                         Forms\Components\TextInput::make('postal_code')
+                            ->label('Code Postal')
                             ->required()
                             ->maxLength(255),
                         Forms\Components\TextInput::make('latitude')
+                            ->label('Latitude')
                             ->required()
                             ->numeric(),
                         Forms\Components\TextInput::make('longitude')
+                            ->label('Longitude')
                             ->required()
                             ->numeric(),
                     ]),
                 Forms\Components\Toggle::make('is_published')
+                    ->label('Publié')
                     ->live()
                     ->required(),
                 Forms\Components\Toggle::make('is_premium')
+                    ->label('Premium')
                     ->required(),
                 Forms\Components\DatePicker::make('published_at')
+                    ->label('Publié à')
                     ->visible(fn (Get $get) => $get('is_published')),
                 Forms\Components\TextInput::make('vues')
+                    ->label('Vues')
                     ->required()
                     ->numeric()
                     ->hiddenOn('create'),
                 SpatieMediaLibraryFileUpload::make('images')
+                    ->label('Images')
                     ->multiple()
                     ->preserveFilenames()
                     ->required(),
@@ -90,21 +105,28 @@ class AdResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nom')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
+                    ->label('Prix')
                     ->money()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('category.name')
+                    ->label('Catégorie')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('location.address')
+                    ->label('Emplacement')
                     ->limit(50)
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_premium')
+                    ->label('Premium')
                     ->boolean(),
                 Tables\Columns\IconColumn::make('is_published')
+                    ->label('Publié')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('vues')
+                    ->label('Vues')
                     ->numeric()
                     ->sortable(),
             ])
@@ -135,5 +157,15 @@ class AdResource extends Resource
             'view' => Pages\ViewAd::route('/{record}'),
             'edit' => Pages\EditAd::route('/{record}/edit'),
         ];
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Annonce';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Annonces';
     }
 }

@@ -17,8 +17,10 @@ class TagsRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name'),
-                Forms\Components\TextInput::make('value'),
+                Forms\Components\TextInput::make('name')
+                    ->label('Nom'),
+                Forms\Components\TextInput::make('value')
+                    ->label('Valeur'),
             ]);
     }
 
@@ -27,14 +29,18 @@ class TagsRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('name')
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('value'),
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Nom'),
+                Tables\Columns\TextColumn::make('value')
+                    ->label('Valeur'),
             ])
             ->headerActions([
                 Tables\Actions\AttachAction::make()
                     ->form(fn (AttachAction $action): array => [
                         $action->getRecordSelect(),
-                        Forms\Components\TextInput::make('value')->required(),
+                        Forms\Components\TextInput::make('value')
+                            ->label('Valeur')
+                            ->required(),
                     ])
                     ->preloadRecordSelect(),
             ])
