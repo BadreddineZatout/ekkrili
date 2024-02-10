@@ -21,6 +21,7 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nom')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -31,6 +32,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nom')
                     ->searchable(),
             ])
             ->actions([
@@ -53,5 +55,15 @@ class CategoryResource extends Resource
             'view' => Pages\ViewCategory::route('/{record}'),
             'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Catégorie';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Catégories';
     }
 }
