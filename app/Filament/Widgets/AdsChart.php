@@ -11,7 +11,7 @@ class AdsChart extends ChartWidget
 {
     protected static ?int $sort = 2;
 
-    protected static ?string $heading = 'Chart';
+    protected static ?string $heading = 'Annonces Totales';
 
     protected function getData(): array
     {
@@ -26,7 +26,7 @@ class AdsChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Ads',
+                    'label' => 'Annonces',
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],
