@@ -2,15 +2,15 @@
     <div class="w-full sm:w-1/3">
         <img class="w-52" src="{{ asset('logo.png') }}" alt="Logo">
     </div>
-    <div class="w-full sm:w-2/3">
+    <div class="mt-5 sm:mt-0 w-full sm:w-2/3">
         <div class="w-full">
             <h1 class="text-3xl font-bold text-gold-700">EKKRILI</h1>
-            <p class="text-lg w-2/3 font-semibold">Le portail d'annonces immobilières entièrement gratuit dédié aux
+            <p class="text-lg sm:w-2/3 font-semibold">Le portail d'annonces immobilières entièrement gratuit dédié aux
                 utilisateurs
                 particuliers</p>
         </div>
         <div class="w-full mt-5">
-            <p class="w-3/4 font-semibold">Notre site spécialisé offre une plateforme conviviale pour la diffusion
+            <p class="sm:w-3/4 font-semibold">Notre site spécialisé offre une plateforme conviviale pour la diffusion
                 d'annonces
                 immobilières, avec des
                 options d'achat, de vente et de location soigneusement filtrées pour répondre à tous vos besoins.</p>
