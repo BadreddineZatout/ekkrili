@@ -9,6 +9,8 @@ use Flowframe\Trend\TrendValue;
 
 class PremuimAdsChart extends ChartWidget
 {
+    protected static ?int $sort = 3;
+
     protected static ?string $heading = 'Chart';
 
     protected function getData(): array
