@@ -94,6 +94,7 @@ class AdResource extends Resource
                     ->hiddenOn('create'),
                 SpatieMediaLibraryFileUpload::make('images')
                     ->label('Images')
+                    ->disk(env('STORAGE_DISK'))
                     ->multiple()
                     ->preserveFilenames()
                     ->required(),
