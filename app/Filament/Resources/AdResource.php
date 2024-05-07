@@ -92,6 +92,8 @@ class AdResource extends Resource
                     ->required()
                     ->numeric()
                     ->hiddenOn('create'),
+                Forms\Components\TextInput::make('link_3d')
+                    ->columnSpanFull(),
                 SpatieMediaLibraryFileUpload::make('images')
                     ->label('Images')
                     ->disk(env('STORAGE_DISK'))
