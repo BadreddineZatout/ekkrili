@@ -93,6 +93,7 @@ class AdResource extends Resource
                     ->numeric()
                     ->hiddenOn('create'),
                 Forms\Components\TextInput::make('link_3d')
+                    ->prefixIcon('tabler-360-view')
                     ->columnSpanFull(),
                 SpatieMediaLibraryFileUpload::make('images')
                     ->label('Images')

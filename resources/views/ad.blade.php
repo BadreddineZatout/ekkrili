@@ -3,7 +3,17 @@
 @section('content')
     <div class="mt-10 w-full sm:w-3/4 px-5 sm:px-36">
         <x-carousel :images="$ad->getMedia()" />
-        <h1 class="text-3xl font-bold my-10">{{ $ad->name }}</h1>
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-bold my-10">{{ $ad->name }}</h1>
+            @if ($ad->link_3d)
+                <a class="flex items-center" href="{{ $ad->link_3d }}" target="_blank">
+                    @svg('tabler-360-view')<svg class="w-5" data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m8.25 4.5 7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </a>
+            @endif
+        </div>
         <p>{{ $ad->category->name }} <span class="font-bold text-2xl mx-1">.</span>
             {{ $ad->type ? 'Vendre' : 'Location' }}
             <span class="font-bold text-2xl mx-1">.</span> {{ $ad->vues }} Vues

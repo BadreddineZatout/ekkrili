@@ -10,6 +10,9 @@
                     stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
             {{ $ad->getMedia()->count() }}X
+            @if ($ad->link_3d)
+                <span class="ml-1">@svg('tabler-360-view')</span>
+            @endif
         </p>
     </div>
     <div class="mt-3">
