@@ -46,7 +46,7 @@ return [
 
         'public_html' => [
             'driver' => 'local',
-            'root' => BASE_DIR . '/public_html/storage',
+            'root' => BASE_DIR.'/public_html/storage',
             'url' => '/storage',
             'visibility' => 'public',
         ],
