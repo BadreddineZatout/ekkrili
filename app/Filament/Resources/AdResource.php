@@ -13,6 +13,7 @@ use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class AdResource extends Resource
 {
@@ -44,6 +45,10 @@ class AdResource extends Resource
                     ->required()
                     ->numeric()
                     ->prefix('$'),
+                Forms\Components\Select::make('user_id')
+                    ->label('Client')
+                    ->relationship('user', 'name', fn (Builder $query) => $query->whereHas('roles', fn ($query) => $query->where('name', '!=', 'super_admin')))
+                    ->hidden(fn () => ! auth()->user()->hasRole('super_admin')),
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->maxLength(65535)
@@ -111,6 +116,12 @@ class AdResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nom')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Client')
+                    ->default('---')
+                    ->toggleable(fn () => auth()->user()->hasRole('super_admin'), isToggledHiddenByDefault: true)
+                    ->hidden(fn () => auth()->user()->hasRole('client'))
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('price')
                     ->label('Prix')
                     ->money()
@@ -129,11 +140,8 @@ class AdResource extends Resource
                 Tables\Columns\IconColumn::make('is_published')
                     ->label('Publié')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('vues')
-                    ->label('Vues')
-                    ->numeric()
-                    ->sortable(),
             ])
+            ->modifyQueryUsing(fn (Builder $query) => auth()->user()->hasRole('client') ? $query->where('user_id', auth()->id()) : $query)
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),

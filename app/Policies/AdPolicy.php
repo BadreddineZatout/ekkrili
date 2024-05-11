@@ -39,7 +39,11 @@ class AdPolicy
      */
     public function update(User $user, Ad $ad): bool
     {
-        return $user->can('update_ad');
+        if ($user->hasRole('super_admin')) {
+            return $user->can('update_ad');
+        }
+
+        return $user->can('update_ad') && $ad->user_id == $user->id;
     }
 
     /**
@@ -47,7 +51,11 @@ class AdPolicy
      */
     public function delete(User $user, Ad $ad): bool
     {
-        return $user->can('delete_ad');
+        if ($user->hasRole('super_admin')) {
+            return $user->can('delete_ad');
+        }
+
+        return $user->can('delete_ad') && $ad->user_id == $user->id;
     }
 
     /**
