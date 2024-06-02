@@ -60,8 +60,7 @@
         <div id='map' class="w-full h-96 mb-10"></div>
     </div>
     <script>
-        mapboxgl.accessToken =
-            'pk.eyJ1IjoiYmFkcmVkZGluZS05OSIsImEiOiJjbHNhdjhkNDQwODdvMmtsbTdmcnRpYnBnIn0.bYMS29srQNzS8RMNev_sLA';
+        mapboxgl.accessToken = "{{ env('MAPBOX_TOKEN') }}";
         const map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
