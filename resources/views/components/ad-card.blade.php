@@ -19,7 +19,7 @@
         </div>
         <div class="mt-3 font-semibold">
             <h3 class="text-2xl font-bold">{{ $ad->price }} DA</h3>
-            <h1 class="text-xl">{{ $ad->name }}</h1>
+            <h1 class="text-xl">{{ $ad->category->name }} - {{ $ad->name }}</h1>
             <div class="w-full flex flex-wrap gap-2">
                 @foreach ($ad->tags as $index => $tag)
                     <div class="w-fit flex items-center">{{ $tag->pivot->value }}
@@ -32,7 +32,9 @@
             <p class="text-sm mt-5 text-gray-500">{{ $ad->location?->city }}</p>
         </div>
     </div>
-    <div class="w-full">
+    <div class="w-full flex justify-between items-center">
+        <p class="text-gray-500">{{ $ad->created_at->locale('fr')->diffForHumans() }}
+        </p>
         <a class="float-end flex items-center gap-1 text-xl font-semibold hover:cursor-pointer hover:underline hover:text-gold-400"
             href="ads/{{ $ad->id }}">Details
             <svg class="w-5" data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5"
