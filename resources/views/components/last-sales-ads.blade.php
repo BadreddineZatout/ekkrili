@@ -6,7 +6,7 @@
             plus</a>
     </div>
     @if (count($ads))
-        <div class="mt-10 px-10 flex items-center flex-wrap gap-y-5">
+        <div class="mt-10 px-10 flex items-start justify-center flex-wrap gap-y-5 gap-x-10">
             @foreach ($ads as $ad)
                 <x-ad-card :ad="$ad" />
             @endforeach
