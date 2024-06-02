@@ -52,7 +52,7 @@
             Rechercher
         </button>
         <button id="clear" class="w-1/2 px-5 py-2 rounded-sm bg-gold-500 text-white hover:bg-gold-400">
-            Clear
+            Effacer
         </button>
     </div>
 </form>

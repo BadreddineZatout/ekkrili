@@ -5,17 +5,31 @@
         <x-carousel :images="$ad->getMedia()" />
         <div class="flex justify-between items-center">
             <h1 class="text-3xl font-bold my-10">{{ $ad->name }}</h1>
-            @if ($ad->link_3d)
-                <a class="flex items-center rounded-lg border border-gold-500 px-3 py-3 text-gold-400 hover:bg-gold-200 hover:text-white"
-                    href="{{ $ad->link_3d }}" target="_blank">
-                    <p class="font-bold text-lg mr-1 pb-1">Visit </p> @svg('tabler-360-view') <svg class="w-5" data-slot="icon"
-                        aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round">
-                        </path>
-                    </svg>
-                </a>
-            @endif
+            <div class="flex items-center gap-5 w-fit">
+                @if ($ad->link_3d)
+                    <a class="flex items-center rounded-lg border border-gold-500 px-3 py-3 text-gold-400 hover:bg-gold-200 hover:text-white"
+                        href="{{ $ad->link_3d }}" target="_blank">
+                        <p class="font-bold text-lg mr-1 pb-1">Visit </p> @svg('tabler-360-view') <svg class="w-5"
+                            data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </a>
+                @endif
+                @if ($ad->agency_link)
+                    <a class="flex items-center rounded-lg border border-gold-500 px-3 py-3 text-gold-400 hover:bg-gold-200 hover:text-white"
+                        href="{{ $ad->agency_link }}" target="_blank">
+                        <p class="font-bold text-lg mr-1 pb-1">Agence </p> @svg('tabler-building-store') <svg class="w-5"
+                            data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </a>
+                @endif
+
+            </div>
         </div>
         <p>{{ $ad->category->name }} <span class="font-bold text-2xl mx-1">.</span>
             {{ $ad->type ? 'Vendre' : 'Location' }}
