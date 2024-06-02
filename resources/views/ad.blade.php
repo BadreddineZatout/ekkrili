@@ -33,7 +33,7 @@
         </div>
         <p>{{ $ad->category->name }} <span class="font-bold text-2xl mx-1">.</span>
             {{ $ad->type ? 'Vendre' : 'Location' }}
-            <span class="font-bold text-2xl mx-1">.</span> {{ $ad->vues }} Vues
+            <span class="font-bold text-2xl mx-1">.</span> {{ $ad->likes }} Aiment ça
             <span class="font-bold text-2xl mx-1">.</span> ID: {{ $ad->id }}
         </p>
         <h3 class="my-2 text-2xl text-gold-500">{{ $ad->price }} DA</h3>

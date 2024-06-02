@@ -19,7 +19,7 @@ class Ad extends Model implements HasMedia
         'category_id',
         'location_id',
         'price',
-        'vues',
+        'likes',
         'is_premium',
         'is_published',
         'published_at',

@@ -48,7 +48,7 @@ class AdResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->label('Client')
                     ->relationship('user', 'name', fn (Builder $query) => $query->whereHas('roles', fn ($query) => $query->where('name', '!=', 'super_admin')))
-                    ->hidden(fn () => ! auth()->user()->hasRole('super_admin')),
+                    ->hidden(fn () => !auth()->user()->hasRole('super_admin')),
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->maxLength(65535)
@@ -92,8 +92,8 @@ class AdResource extends Resource
                 Forms\Components\DatePicker::make('published_at')
                     ->label('Publié à')
                     ->visible(fn (Get $get) => $get('is_published')),
-                Forms\Components\TextInput::make('vues')
-                    ->label('Vues')
+                Forms\Components\TextInput::make('likes')
+                    ->label('Likes')
                     ->required()
                     ->numeric()
                     ->hiddenOn('create'),
