@@ -4,6 +4,17 @@
         <div class="rounded-lg overflow-hidden relative">
             <img src="{{ $ad->getFirstMedia() ? $ad->getFirstMedia()?->getUrl() : '/no_image.png' }}"
                 alt="{{ $ad->name }}">
+            @if ($ad->agency_link)
+                <a class="absolute flex items-center gap-2 top-2 left-2 px-4 py-2 rounded-lg bg-gold-300 text-white font-bold text-xs hover:bg-gold-400 hover:border hover:border-gold-900"
+                    href="{{ $ad->agency_link }}" target="_blank">Agence <svg class="w-4" data-slot="icon"
+                        aria-hidden="true" fill="none" stroke-width="2.0" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </a>
+            @endif
             <p class="absolute flex items-center gap-x-1 text-white bottom-2 right-5">
                 <svg class="w-5 h-5" data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5"
                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
