@@ -18,7 +18,7 @@
             </p>
         </div>
         <div class="mt-3 font-semibold">
-            <h3 class="text-2xl font-bold">{{ $ad->price }} DA</h3>
+            <h3 class="text-2xl font-bold text-gold-600">{{ $ad->price }} DA</h3>
             <h1 class="text-xl">{{ $ad->category->name }} - {{ $ad->name }}</h1>
             <div class="w-full flex flex-wrap gap-2">
                 @foreach ($ad->tags as $index => $tag)

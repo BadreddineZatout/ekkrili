@@ -7,7 +7,7 @@
         </div>
         <div class="w-full sm:w-3/4">
             <h1 class="text-2xl font-semibold">{{ count($ads) }} résultats trouvés</h1>
-            <div class="w-full my-10 px-5 flex flex-wrap gap-y-5">
+            <div class="w-full my-10 px-5 grid grid-cols-1 sm:grid-cols-3 gap-5">
                 @foreach ($ads as $ad)
                     <x-ad-details-card :ad="$ad" />
                 @endforeach

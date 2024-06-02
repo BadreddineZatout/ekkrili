@@ -1,4 +1,5 @@
-<a href="ads/{{ $ad->id }}" class="w-full sm:w-1/3 h-fit px-3 pb-5 rounded-lg hover:shadow-lg">
+<a href="ads/{{ $ad->id }}"
+    class="col-span-1 border border-gold-100 h-fit px-3 py-5 min-h-full rounded-lg hover:shadow-lg">
     <div class="rounded-lg overflow-hidden relative">
         <img src="{{ $ad->getFirstMedia() ? $ad->getFirstMedia()?->getUrl() : '/no_image.png' }}"
             alt="{{ $ad->name }}">
@@ -30,9 +31,18 @@
         </p>
     </div>
     <div class="mt-3">
-        <h3 class="text-xl text-gold-600">{{ $ad->price }} DA</h3>
-        <p class="text-sm text-gray-400">{{ $ad->location?->city }}</p>
+        <h3 class="text-xl font-bold text-gold-600">{{ $ad->price }} DA</h3>
         <h1 class="text-2xl font-semibold">{{ $ad->name }}</h1>
+        <div class="w-full flex flex-wrap gap-2">
+            @foreach ($ad->tags as $index => $tag)
+                <div class="w-fit flex items-center">{{ $tag->pivot->value }}
+                    @if ($index != count($ad->tags) - 1)
+                        <x-tabler-point-filled class="w-5 ml-2" />
+                    @endif
+                </div>
+            @endforeach
+        </div>
+        <p class="text-sm text-gray-400">{{ $ad->location?->city }}</p>
         <p class="mt-5 text-gray-400">{{ $ad->created_at->locale('fr')->diffForHumans() }} <span
                 class="font-bold text-2xl mx-1">.</span> {{ $ad->category->name }} <span
                 class="font-bold text-2xl mx-1">.</span> {{ $ad->type ? 'Vendre' : 'Location' }}
