@@ -100,6 +100,9 @@ class AdResource extends Resource
                 Forms\Components\TextInput::make('link_3d')
                     ->prefixIcon('tabler-360-view')
                     ->columnSpanFull(),
+                Forms\Components\TextInput::make('agency_link')
+                    ->prefixIcon('tabler-building-store')
+                    ->columnSpanFull(),
                 SpatieMediaLibraryFileUpload::make('images')
                     ->label('Images')
                     ->disk(env('STORAGE_DISK'))
