@@ -28,13 +28,22 @@
                         </svg>
                     </a>
                 @endif
-
+                @auth
+                    <button id="like"
+                        class="rounded-full p-5 border-2 border-black hover:text-red-600 hover:border-red-600 {{ $like ? 'hidden' : '' }}">
+                        <x-tabler-heart-filled />
+                    </button>
+                    <button id="unlike"
+                        class="rounded-full p-5 border-2 border-red-600 text-red-600 hover:border-black hover:text-black {{ $like ? '' : 'hidden' }}">
+                        <x-tabler-heart-filled />
+                    </button>
+                @endauth
             </div>
         </div>
-        <p>{{ $ad->category->name }} <span class="font-bold text-2xl mx-1">.</span>
+        <p class="flex">{{ $ad->category->name }} <x-tabler-point-filled class="w-5 mx-2" />
             {{ $ad->type ? 'Vendre' : 'Location' }}
-            <span class="font-bold text-2xl mx-1">.</span> {{ $ad->vues }} Vues
-            <span class="font-bold text-2xl mx-1">.</span> ID: {{ $ad->id }}
+            <x-tabler-point-filled class="w-5 mx-2" /> {{ $ad->likes }} Aiment ça
+            <x-tabler-point-filled class="w-5 mx-2" /> ID: {{ $ad->id }}
         </p>
         <h3 class="my-2 text-2xl text-gold-500">{{ $ad->price }} DA</h3>
         <p class="text-gray-400">Publié le {{ $ad->created_at->format('d F Y') }}. Modifié le
@@ -89,5 +98,36 @@
                 {{ $ad->location->latitude }}
             ])
             .addTo(map);
+
+        const like = async () => {
+            try {
+                showLike();
+                const response = await axios.post("/ads/" + {{ $ad->id }} + "/like");
+            } catch (error) {
+                console.log(error);
+                showUnlike();
+            }
+        }
+
+        const unlike = async () => {
+            try {
+                showUnlike();
+                const response = await axios.post("/ads/" + {{ $ad->id }} + "/unlike");
+            } catch (error) {
+                console.log(error);
+                showLike();
+            }
+        }
+
+        const showLike = () => {
+            document.querySelector('#like').classList.add('hidden');
+            document.querySelector('#unlike').classList.remove('hidden');
+        }
+        const showUnlike = () => {
+            document.querySelector('#unlike').classList.add('hidden');
+            document.querySelector('#like').classList.remove('hidden');
+        }
+        document.querySelector("#like").addEventListener('click', like);
+        document.querySelector("#unlike").addEventListener('click', unlike);
     </script>
 @endsection

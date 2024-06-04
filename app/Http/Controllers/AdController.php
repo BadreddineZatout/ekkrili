@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use App\Models\Category;
+use App\Models\Like;
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -59,6 +60,27 @@ class AdController extends Controller
 
     public function show(Ad $ad)
     {
-        return view('ad', compact('ad'));
+        $like = Like::where([
+            'ad_id' => $ad->id,
+            'user_id' => auth()->id(),
+        ])->first();
+
+        return view('ad', compact('ad', 'like'));
+    }
+
+    public function addLike(Ad $ad)
+    {
+        return Like::create([
+            'ad_id' => $ad->id,
+            'user_id' => auth()->id(),
+        ]);
+    }
+
+    public function removeLike(Ad $ad)
+    {
+        return Like::where([
+            'ad_id' => $ad->id,
+            'user_id' => auth()->id(),
+        ])->delete();
     }
 }

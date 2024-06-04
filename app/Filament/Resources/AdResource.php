@@ -92,8 +92,8 @@ class AdResource extends Resource
                 Forms\Components\DatePicker::make('published_at')
                     ->label('Publié à')
                     ->visible(fn (Get $get) => $get('is_published')),
-                Forms\Components\TextInput::make('vues')
-                    ->label('Vues')
+                Forms\Components\TextInput::make('likes')
+                    ->label('Likes')
                     ->required()
                     ->numeric()
                     ->hiddenOn('create'),
