@@ -16,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/ads', [AdController::class, 'index']);
-Route::get('/ads/{ad}', [AdController::class, 'show']);
+Route::controller(AdController::class)->prefix('ads')->group(function () {
+
+    Route::get('/', 'index');
+    Route::get('/{ad}', 'show');
+    Route::post('/{ad}/like', 'addLike');
+    Route::post('/{ad}/unlike', 'removeLike');
+});

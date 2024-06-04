@@ -28,10 +28,16 @@
                         </svg>
                     </a>
                 @endif
-                <button id="like"
-                    class="rounded-full p-5 border-2 border-black hover:text-red-600 hover:border-red-600">
-                    <x-tabler-heart-filled />
-                </button>
+                @auth
+                    <button id="like"
+                        class="rounded-full p-5 border-2 border-black hover:text-red-600 hover:border-red-600 {{ $like ? 'hidden' : '' }}">
+                        <x-tabler-heart-filled />
+                    </button>
+                    <button id="unlike"
+                        class="rounded-full p-5 border-2 border-red-600 text-red-600 hover:border-black hover:text-black {{ $like ? '' : 'hidden' }}">
+                        <x-tabler-heart-filled />
+                    </button>
+                @endauth
             </div>
         </div>
         <p class="flex">{{ $ad->category->name }} <x-tabler-point-filled class="w-5 mx-2" />
@@ -95,12 +101,33 @@
 
         const like = async () => {
             try {
-                const response = await axios.post("/api/ads/like");
-
+                showLike();
+                const response = await axios.post("/ads/" + {{ $ad->id }} + "/like");
             } catch (error) {
                 console.log(error);
+                showUnlike();
             }
         }
+
+        const unlike = async () => {
+            try {
+                showUnlike();
+                const response = await axios.post("/ads/" + {{ $ad->id }} + "/unlike");
+            } catch (error) {
+                console.log(error);
+                showLike();
+            }
+        }
+
+        const showLike = () => {
+            document.querySelector('#like').classList.add('hidden');
+            document.querySelector('#unlike').classList.remove('hidden');
+        }
+        const showUnlike = () => {
+            document.querySelector('#unlike').classList.add('hidden');
+            document.querySelector('#like').classList.remove('hidden');
+        }
         document.querySelector("#like").addEventListener('click', like);
+        document.querySelector("#unlike").addEventListener('click', unlike);
     </script>
 @endsection
