@@ -28,13 +28,16 @@
                         </svg>
                     </a>
                 @endif
-
+                <button id="like"
+                    class="rounded-full p-5 border-2 border-black hover:text-red-600 hover:border-red-600">
+                    <x-tabler-heart-filled />
+                </button>
             </div>
         </div>
-        <p>{{ $ad->category->name }} <span class="font-bold text-2xl mx-1">.</span>
+        <p class="flex">{{ $ad->category->name }} <x-tabler-point-filled class="w-5 mx-2" />
             {{ $ad->type ? 'Vendre' : 'Location' }}
-            <span class="font-bold text-2xl mx-1">.</span> {{ $ad->likes }} Aiment ça
-            <span class="font-bold text-2xl mx-1">.</span> ID: {{ $ad->id }}
+            <x-tabler-point-filled class="w-5 mx-2" /> {{ $ad->likes }} Aiment ça
+            <x-tabler-point-filled class="w-5 mx-2" /> ID: {{ $ad->id }}
         </p>
         <h3 class="my-2 text-2xl text-gold-500">{{ $ad->price }} DA</h3>
         <p class="text-gray-400">Publié le {{ $ad->created_at->format('d F Y') }}. Modifié le
@@ -89,5 +92,15 @@
                 {{ $ad->location->latitude }}
             ])
             .addTo(map);
+
+        const like = async () => {
+            try {
+                const response = await axios.post("/api/ads/like");
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        document.querySelector("#like").addEventListener('click', like);
     </script>
 @endsection
