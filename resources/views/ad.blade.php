@@ -3,11 +3,11 @@
 @section('content')
     <div class="mt-10 w-full sm:w-3/4 px-5 sm:px-36">
         @if ($ad->agency)
-            <div class="w-full bg-gold-100 h-fit px-4 py-2 flex gap-10 items-center">
+            <div class="w-full bg-gold-50 h-fit px-4 py-2 flex gap-10 items-center">
                 <img class="h-20"
                     src="{{ count($ad->agency->getMedia()) ? $ad->agency->getMedia()[0]->getUrl() : asset('no_image.png') }}"
                     alt="">
-                <a href="{{ $ad->agency->link }}" class="text-xl font-semibold hover:underline"
+                <a href="{{ $ad->agency->link }}" class="text-2xl font-semibold hover:underline"
                     target="_blank">{{ $ad->agency->name }}</a>
             </div>
         @endif
@@ -46,6 +46,20 @@
         <h3 class="my-2 text-2xl text-gold-500">{{ $ad->price }} DA</h3>
         <p class="text-gray-400">Publié le {{ $ad->created_at->format('d F Y') }}. Modifié le
             {{ $ad->updated_at->format('d F Y') }}</p>
+        <div class="w-full flex justify-evenly items-center gap-5 text-xl mt-5 font-bold text-white">
+            @if ($ad->phone)
+                <a class="w-1/2 sm:w-1/3 py-4 flex justify-center gap-5 border border-gold-700 bg-gold-500 rounded-xl hover:bg-gold-400"
+                    href="tel:{{ $ad->phone }}"><x-tabler-phone-filled />
+                    Télephone
+                </a>
+            @endif
+            @if ($ad->email)
+                <a class="w-1/2 sm:w-1/3 py-4 flex justify-center gap-5 border border-gold-700 bg-gold-500 rounded-xl hover:bg-gold-400"
+                    href="mailto:{{ $ad->email }}"><x-tabler-mail />
+                    Contacter
+                </a>
+            @endif
+        </div>
         <div class="mt-10">
             <h1 class="text-xl font-semibold">Attributs</h1>
             @foreach ($ad->tags as $tag)

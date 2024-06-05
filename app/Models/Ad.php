@@ -25,6 +25,8 @@ class Ad extends Model implements HasMedia
         'is_published',
         'published_at',
         'link_3d',
+        'phone',
+        'email',
     ];
 
     protected $casts = [

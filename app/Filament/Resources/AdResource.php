@@ -54,6 +54,13 @@ class AdResource extends Resource
                     ->relationship('agency', 'name')
                     ->searchable()
                     ->preload(),
+                Forms\Components\TextInput::make('phone')
+                    ->label('Téléphone')
+                    ->maxLength(15),
+                Forms\Components\TextInput::make('email')
+                    ->label('Email')
+                    ->email()
+                    ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->maxLength(65535)

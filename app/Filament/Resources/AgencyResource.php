@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AgencyResource\Pages;
-use App\Filament\Resources\AgencyResource\RelationManagers;
 use App\Models\Agency;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
@@ -12,8 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AgencyResource extends Resource
 {
@@ -35,7 +32,7 @@ class AgencyResource extends Resource
                     ->label('Logo')
                     ->disk(env('STORAGE_DISK'))
                     ->preserveFilenames()
-                    ->required()
+                    ->required(),
             ]);
     }
 
