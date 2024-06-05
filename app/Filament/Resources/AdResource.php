@@ -48,7 +48,7 @@ class AdResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->label('Client')
                     ->relationship('user', 'name', fn (Builder $query) => $query->whereHas('roles', fn ($query) => $query->where('name', '!=', 'super_admin')))
-                    ->hidden(fn () => ! auth()->user()->hasRole('super_admin')),
+                    ->hidden(fn () => !auth()->user()->hasRole('super_admin')),
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->maxLength(65535)
@@ -88,6 +88,7 @@ class AdResource extends Resource
                     ->required(),
                 Forms\Components\Toggle::make('is_premium')
                     ->label('Premium')
+                    ->hidden(auth()->user()->hasRole('client'))
                     ->required(),
                 Forms\Components\DatePicker::make('published_at')
                     ->label('Publié à')
@@ -139,6 +140,7 @@ class AdResource extends Resource
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_premium')
                     ->label('Premium')
+                    ->hidden(auth()->user()->hasRole('client'))
                     ->boolean(),
                 Tables\Columns\IconColumn::make('is_published')
                     ->label('Publié')
