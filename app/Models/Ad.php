@@ -25,7 +25,6 @@ class Ad extends Model implements HasMedia
         'is_published',
         'published_at',
         'link_3d',
-        'agency_link',
     ];
 
     protected $casts = [
@@ -45,6 +44,11 @@ class Ad extends Model implements HasMedia
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function agency(): BelongsTo
+    {
+        return $this->belongsTo(Agency::class);
     }
 
     public function tags(): BelongsToMany
