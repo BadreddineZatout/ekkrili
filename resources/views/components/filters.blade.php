@@ -7,7 +7,7 @@
             value="{{ isset($filters['search']) ? $filters['search'] : '' }}">
     </div>
     <div class="w-full mb-5">
-        <label class="font-semibold" for="location">Location</label>
+        <label class="font-semibold" for="location">Localisation</label>
         <input
             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-400"
             id="location" name="location" type="text" placeholder="Dans quelle ville ? Quartier ?"

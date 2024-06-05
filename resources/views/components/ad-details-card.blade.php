@@ -4,9 +4,9 @@
         <div class="rounded-lg overflow-hidden relative">
             <img src="{{ $ad->getFirstMedia() ? $ad->getFirstMedia()?->getUrl() : '/no_image.png' }}"
                 alt="{{ $ad->name }}">
-            @if ($ad->agency_link)
+            @if ($ad->agency)
                 <a class="absolute flex items-center gap-2 top-2 left-2 px-4 py-2 rounded-lg bg-gold-300 text-white font-bold text-xs hover:bg-gold-400 hover:border hover:border-gold-900"
-                    href="{{ $ad->agency_link }}" target="_blank">Agence <svg class="w-4" data-slot="icon"
+                    href="{{ $ad->agency->link }}" target="_blank">Agence <svg class="w-4" data-slot="icon"
                         aria-hidden="true" fill="none" stroke-width="2.0" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

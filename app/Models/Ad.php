@@ -31,6 +31,8 @@ class Ad extends Model implements HasMedia
         'published_at' => 'date',
     ];
 
+    protected $with = ['agency'];
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
