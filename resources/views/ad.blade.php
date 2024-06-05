@@ -3,7 +3,7 @@
 @section('content')
     <div class="mt-10 w-full sm:w-3/4 px-5 sm:px-36">
         @if ($ad->agency)
-            <div class="w-full bg-gold-50 h-fit mb-2 px-4 py-2 flex gap-10 items-center">
+            <div class="w-full bg-gold-100 h-fit px-4 py-2 flex gap-10 items-center">
                 <img class="h-20"
                     src="{{ count($ad->agency->getMedia()) ? $ad->agency->getMedia()[0]->getUrl() : asset('no_image.png') }}"
                     alt="">
