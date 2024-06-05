@@ -22,6 +22,9 @@ export default {
                     950: "#3d1e0b",
                 },
             },
+            animation: {
+                bounce: "bounce 3s infinite",
+            },
         },
     },
     plugins: [],

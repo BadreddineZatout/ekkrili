@@ -49,6 +49,18 @@ class AdResource extends Resource
                     ->label('Client')
                     ->relationship('user', 'name', fn (Builder $query) => $query->whereHas('roles', fn ($query) => $query->where('name', '!=', 'super_admin')))
                     ->hidden(fn () => ! auth()->user()->hasRole('super_admin')),
+                Forms\Components\Select::make('agency')
+                    ->label('Agence')
+                    ->relationship('agency', 'name')
+                    ->searchable()
+                    ->preload(),
+                Forms\Components\TextInput::make('phone')
+                    ->label('Téléphone')
+                    ->maxLength(15),
+                Forms\Components\TextInput::make('email')
+                    ->label('Email')
+                    ->email()
+                    ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->maxLength(65535)
@@ -88,6 +100,7 @@ class AdResource extends Resource
                     ->required(),
                 Forms\Components\Toggle::make('is_premium')
                     ->label('Premium')
+                    ->hidden(auth()->user()->hasRole('client'))
                     ->required(),
                 Forms\Components\DatePicker::make('published_at')
                     ->label('Publié à')
@@ -99,9 +112,6 @@ class AdResource extends Resource
                     ->hiddenOn('create'),
                 Forms\Components\TextInput::make('link_3d')
                     ->prefixIcon('tabler-360-view')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('agency_link')
-                    ->prefixIcon('tabler-building-store')
                     ->columnSpanFull(),
                 SpatieMediaLibraryFileUpload::make('images')
                     ->label('Images')
@@ -139,6 +149,7 @@ class AdResource extends Resource
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_premium')
                     ->label('Premium')
+                    ->hidden(auth()->user()->hasRole('client'))
                     ->boolean(),
                 Tables\Columns\IconColumn::make('is_published')
                     ->label('Publié')

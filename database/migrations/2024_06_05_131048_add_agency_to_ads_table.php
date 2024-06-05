@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('ads', function (Blueprint $table) {
-            $table->string('agency_link')->nullable();
+            $table->foreignId('agency_id')->nullable()->constrained()->nullOnDelete();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('ads', function (Blueprint $table) {
-            $table->dropColumn('agency_link');
+            $table->dropConstrainedForeignId('agency_id');
         });
     }
 };

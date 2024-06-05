@@ -1,8 +1,8 @@
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div class="relative h-56 overflow-hidden md:h-96">
         @foreach ($images as $image)
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
                 <img src="{{ $image->getUrl() }}"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
@@ -11,7 +11,7 @@
     <!-- Slider indicators -->
     <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
         @foreach ($images as $index => $image)
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="true"
+            <button type="button" class="w-3 h-3 rounded-full bg-gold-500" aria-current="true"
                 aria-label="Slide {{ $index + 1 }}" data-carousel-slide-to="{{ $index }}"></button>
         @endforeach
     </div>

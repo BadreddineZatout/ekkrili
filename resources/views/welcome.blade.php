@@ -1,15 +1,20 @@
 @extends('layout')
 
 @section('content')
-    <div
-        class="bg-gold-50 w-full border-y-2 bg-royalBlue-100 shadow-lg border-royalBlue-300 mb-10 px-10 lg:px-20 py-10 flex justify-between items-center">
-        <div class="w-full lg:w-1/2">
-            <h1 class="text-3xl text-gold-700 font-bold mb-1">EKKRILI</h1>
-            <h2 class="text-xl font-semibold mb-5">
+    <div class="bg-gold-50 w-full h-fit mb-20 shadow-lg flex flex-col sm:flex-row">
+        <div class="px-5 py-20 sm:py-40">
+            <h1 class="text-6xl sm:text-7xl text-gold-500 font-bold mb-1 animate-bounce">EKKRILI</h1>
+            <h2 class="text-xl font-semibold mb-5 indent-3">
                 Le portail d'annonces immobilières entièrement gratuit dédié aux
                 utilisateurs
                 particuliers
             </h2>
+        </div>
+        <img class="float-end object-fill" src="{{ asset('background.jpg') }}" alt="" />
+    </div>
+    <div class="w-full mb-10 px-10 lg:px-20 py-10 flex justify-between items-center">
+        <div class="w-full lg:w-1/2">
+
             <p class="indent-8">
                 Bienvenue sur Ekkrili, le portail d'annonces immobilières entièrement gratuit dédié aux utilisateurs
                 particuliers ! Notre site spécialisé offre une plateforme conviviale pour la diffusion d'annonces

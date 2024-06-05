@@ -1,4 +1,4 @@
-<div class="text-left px-10 py-1  shadow-lg flex justify-between items-center">
+<div class="text-left px-10 py-1 shadow-lg flex justify-between items-center">
     <a href="/">
         <img class="object-cover w-24 sm:w-32" src="/logo.png" alt="Logo">
     </a>
